@@ -1,0 +1,22 @@
+{
+  "description": {
+    "detail": "强大AI Agent助力，轻松实现多语言互译！"
+  },
+  "features": {
+    "intelligent-analysis": "智能解析，精准翻译",
+    "multi-format-support": "多格式支持",
+    "terminology-optimization": "术语优化",
+    "realtime-translation": "实时翻译结果"
+  },
+  "translat-form": {
+    "src-lang": "源语言",
+    "target-lang": "目标语言",
+    "source-text": "源文本",
+    "source-text-placeholder": "请输入要翻译的文本...",
+    "translate-btn": "翻译",
+    "translating": "翻译中...",
+    "translated-text": "翻译结果",
+    "file-upload": "上传文件",
+    "file-upload-placeholder": "点击或拖拽文件到此处上传"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "description": {
+    "detail": "Powerful AI Agent for effortless multilingual translation!"
+  },
+  "features": {
+    "intelligent-analysis": "Intelligent Analysis, Accurate Translation",
+    "multi-format-support": "Multi-Format Support",
+    "terminology-optimization": "Terminology Optimization",
+    "realtime-translation": "Real-time Translation Results"
+  },
+  "translat-form": {
+    "src-lang": "Source Language",
+    "target-lang": "Target Language",
+    "source-text": "Source Text",
+    "source-text-placeholder": "Please enter text to translate...",
+    "translate-btn": "Translate",
+    "translating": "Translating...",
+    "translated-text": "Translation Result",
+    "file-upload": "Upload File",
+    "file-upload-placeholder": "Click or drag a file here to upload"
+  }
+}

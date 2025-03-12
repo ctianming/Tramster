@@ -1,0 +1,22 @@
+{
+  "description": {
+    "detail": "Un puissant agent IA pour une traduction multilingue sans effort !"
+  },
+  "features": {
+    "intelligent-analysis": "Analyse intelligente, traduction précise",
+    "multi-format-support": "Prise en charge multi-formats",
+    "terminology-optimization": "Optimisation de la terminologie",
+    "realtime-translation": "Résultats de traduction en temps réel"
+  },
+  "translat-form": {
+    "src-lang": "Langue source",
+    "target-lang": "Langue cible",
+    "source-text": "Texte source",
+    "source-text-placeholder": "Veuillez entrer le texte à traduire...",
+    "translate-btn": "Traduire",
+    "translating": "Traduction en cours...",
+    "translated-text": "Résultat de la traduction",
+    "file-upload": "Télécharger un fichier",
+    "file-upload-placeholder": "Cliquez ou faites glisser un fichier ici pour télécharger"
+  }
+}
