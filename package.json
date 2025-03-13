@@ -10,13 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "dotenv": "^16.4.7",
     "framer-motion": "^12.4.10",
     "i18next": "^23.11.0",
     "i18next-browser-languagedetector": "^8.0.4",
     "i18next-http-backend": "^3.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-i18next": "^14.0.1"
+    "react-i18next": "^14.0.1",
+    "supabase": "^2.19.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

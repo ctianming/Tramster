@@ -1,4 +1,3 @@
-import React from 'react';
 import MainLayout from './components/layout/MainLayout';
 import Introduction from './components/layout/Introduction';
 import TranslationForm from './components/translation-form';

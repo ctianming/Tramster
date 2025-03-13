@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
-import { sendCozeAgentRequestStream, sendCozeWorkflowRequestStream } from '../services/api/coze';
+import { sendCozeAgentRequestStream } from '../services/api/coze';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
+import { uploadFile } from '../services/api/supabase';
 
 const languages = [
   { code: 'zh', name: '中文' },
-  { code: 'en', name: 'English' },
-  { code: 'fr', name: 'Français' },
-  { code: 'de', name: 'Deutsch' },
-  { code: 'es', name: 'Español' },
-  { code: 'it', name: 'Italiano' },
-  { code: 'ja', name: '日本語' },
-  { code: 'ko', name: '한국어' },
-  { code: 'pt', name: 'Português' },
-  { code: 'ru', name: 'Русский' },
+  { code: 'en', name: '英语' },
+  { code: 'fr', name: '法语' },
+  { code: 'de', name: '德语' },
+  { code: 'es', name: '西班牙语' },
+  { code: 'it', name: '意大利语' },
+  { code: 'ja', name: '日语' },
+  { code: 'ko', name: '韩语' },
+  { code: 'pt', name: '葡萄牙语' },
+  { code: 'ru', name: '俄语' },
 ];
 
 export default function TranslationForm() {
-  const [sourceLanguage, setSourceLanguage] = useState('zh');
-  const [targetLanguage, setTargetLanguage] = useState('en');
+  const [sourceLanguage, setSourceLanguage] = useState('zh'); // 默认为中文
+  const [targetLanguage, setTargetLanguage] = useState('en'); // 默认为英文
   const [sourceText, setSourceText] = useState('');
   const [translatedText, setTranslatedText] = useState('');
   const [file, setFile] = useState<File | null>(null);
@@ -36,34 +37,55 @@ export default function TranslationForm() {
     setTranslatedText('');
     setIsTranslating(true);
 
-    const targetLang = languages.find(lang => lang.code === targetLanguage);
+    if (!sourceText && !file) {
+      console.error('No text or file provided');
+      setIsTranslating(false);
+      return;
+    }
 
-    const requestData = {
-      // bot_id: '7477452195714777140',
-      workflow_id: '7480839522608021540',
+    const targetLang = languages.find(lang => lang.code === targetLanguage);
+    const sourceLang = languages.find(lang => lang.code === sourceLanguage);
+
+    if (!sourceLang || !targetLang) {
+      console.error('No language available');
+      setIsTranslating(false);
+      return;
+    }
+
+    const botRequestData = {
+      bot_id: '',
       user_id: '123',
-      content: sourceText + '\n' + '翻译成' + (targetLang?.name || 'English'),
+      content: '',
     };
 
-    // try {
-    //   await sendCozeAgentRequestStream(requestData, (content) => {
-    //     setTranslatedText((prev) => prev + content);
-    //   });
-    // } finally {
-    //   console.log('翻译完成');
-    //   console.log(translatedText);
-    //   setIsTranslating(false);
-    // }
-    try{
-      await sendCozeWorkflowRequestStream(requestData, (content) => {
-        setTranslatedText((prev) => prev + content);
-      });
-    } finally {
-      console.log('翻译完成');
-      console.log(translatedText);
-      setIsTranslating(false);
+    if (file) {
+      try {
+        const uploadedUrl = await uploadFile(file);
+        if (!uploadedUrl) throw new Error('File upload failed');
+
+        botRequestData.content = `${uploadedUrl} 将这个链接的内容翻译为 ${targetLang.name}`;
+
+        await sendCozeAgentRequestStream(botRequestData, (content) => {
+          setTranslatedText((prev) => prev + content);
+        });
+      } catch (error) {
+        console.error('Upload error:', error);
+      } finally {
+        setIsTranslating(false);
+      }
+    } else {
+      botRequestData.content = sourceText;
+
+      try {
+        await sendCozeAgentRequestStream(botRequestData, (content) => {
+          setTranslatedText((prev) => prev + content);
+        });
+      } finally {
+        setIsTranslating(false);
+      }
     }
   };
+
 
   return (
     <div className="max-w-3xl mx-auto mt-8 px-4">
