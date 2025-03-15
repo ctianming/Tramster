@@ -17,6 +17,17 @@
     "translating": "Translating...",
     "translated-text": "Translation Result",
     "file-upload": "Upload File",
-    "file-upload-placeholder": "Click or drag a file here to upload"
+    "file-upload-placeholder": "Click or drag a file here to upload",
+    "downloading": "Downloading...",
+    "download-file": "Download Translated File",
+    "download-zip": "Download ZIP Archive",
+    "file-processing": "Processing File",
+    "file-downloaded": "File Downloaded",
+    "merge-files": "Merge Files",
+    "files-available": "{{count}} files generated",
+    "merging-files": "Merging files...",
+    "zip-creating": "Creating ZIP archive...",
+    "documents-merged": "Documents merged",
+    "page-of": "Page {current} of {total}"
   }
 }

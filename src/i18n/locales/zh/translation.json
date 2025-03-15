@@ -17,6 +17,17 @@
     "translating": "翻译中...",
     "translated-text": "翻译结果",
     "file-upload": "上传文件",
-    "file-upload-placeholder": "点击或拖拽文件到此处上传"
+    "file-upload-placeholder": "点击或拖拽文件到此处上传",
+    "downloading": "正在下载...",
+    "download-file": "下载翻译文件",
+    "download-zip": "下载ZIP归档",
+    "file-processing": "文件处理中",
+    "file-downloaded": "文件已下载",
+    "merge-files": "合并文件",
+    "files-available": "已生成 {{count}} 个文件",
+    "merging-files": "正在合并文件...",
+    "zip-creating": "正在创建ZIP归档...",
+    "documents-merged": "文档已合并",
+    "page-of": "第 {current} 页，共 {total} 页"
   }
 }
